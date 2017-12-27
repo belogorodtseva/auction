@@ -1,0 +1,197 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+<!--Slider-->
+<div id="slider">
+  <a href="#" class="control_next">></a>
+  <a href="#" class="control_prev"><</a>
+  <ul>
+    <li style="background-image:url({% static 'img/auction1.jpg' %})"></li>
+    <li style="background-image:url({% static 'img/auction2.jpg' %})"></li>
+    <li style="background-image:url({% static 'img/auction1.jpg' %})"></li>
+    <li style="background-image:url({% static 'img/auction2.jpg' %})"></li>
+  </ul>
+</div>
+
+
+<!--Top products-->
+<div class="products-content">
+
+  <!--Category top-->
+  <div class="product-row">
+    <!--Category header-->
+    <header>
+      {% for T in Top1 %}
+      <img src="{{ T.icon.url }}">
+      <div class="line"></div>
+      <h2>{{ T.name }}</h2>
+      <h3>We offer affordable used cars, trucks and vans – hybrids, 4X4s, dump trucks and more</h3>
+      {% endfor %}
+    </header>
+
+    <!--Category products-->
+    <div class="products-section">
+
+      {% for P in Product1 %}
+      <!--Uno product section-->
+
+      <div class="product-uno">
+        <a href="{% url 'product' pk=P.pk %}">
+        <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          <div class="product-price">
+            <p>{{ P.price }}</p>
+          </div>
+        </div></a>
+        <div class="product-detail">
+          <div class="product-name">
+            <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
+          </div>
+          <div class="product-time">
+            <p>Time left | {{ P.datefinish }}</p>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+
+    </div>
+
+    <div class="seemore-products">
+      {% for T in Top1 %}
+      <a href="{% url 'category' pk=T.pk %}">See more in this category</a>
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+  <!--Category top-->
+  <div class="product-row">
+    <!--Category header-->
+    <header>
+      {% for T in Top2 %}
+      <img src="{{ T.icon.url }}">
+      <div class="line"></div>
+      <h2>{{ T.name }}</h2>
+      <h3>We offer affordable used cars, trucks and vans – hybrids, 4X4s, dump trucks and more</h3>
+      {% endfor %}
+    </header>
+
+    <!--Category products-->
+    <div class="products-section">
+
+      {% for P in Product2 %}
+      <!--Uno product section-->
+
+      <div class="product-uno">
+        <a href="{% url 'product' pk=P.pk %}">
+        <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          <div class="product-price">
+            <p>{{ P.price }}</p>
+          </div>
+        </div></a>
+        <div class="product-detail">
+          <div class="product-name">
+            <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
+          </div>
+          <div class="product-time">
+            <p>Time left | {{ P.datefinish }}</p>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+      {% for P in Product2 %}
+      <!--Uno product section-->
+
+      <div class="product-uno">
+        <a href="{% url 'product' pk=P.pk %}">
+        <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          <div class="product-price">
+            <p>{{ P.price }}</p>
+          </div>
+        </div></a>
+        <div class="product-detail">
+          <div class="product-name">
+            <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
+          </div>
+          <div class="product-time">
+            <p>Time left | {{ P.datefinish }}</p>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+
+
+    </div>
+
+    <div class="seemore-products">
+      {% for T in Top2 %}
+      <a href="{% url 'category' pk=T.pk %}">See more in this category</a>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scriptin %}
+<script>
+jQuery(document).ready(function ($) {
+
+  //setInterval(function () {
+  //      moveRight();
+  //}, 3000);
+
+	var slideCount = $('#slider ul li').length;
+	var slideWidth = $('#slider ul li').width();
+	var slideHeight = $('#slider ul li').height();
+	var sliderUlWidth = slideCount * slideWidth;
+
+	$('#slider').css({ width: slideWidth, height: slideHeight });
+
+	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveLeft() {
+        $('#slider ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider ul li:last-child').prependTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+});
+</script>
+{% endblock %}

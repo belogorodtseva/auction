@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  {% load staticfiles %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <script src="/static/js/jquery.js"></script>
+
+    {% block headin %}
+    {% endblock %}
+
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <header id="mainheader">
+    <div class="topmenu">
+      <div class="topmenu-content">
+        <a id="logo" href="/">
+          <img src="{% static 'img/logo.png' %}">
+        </a>
+        <ul>
+            {% if not user.is_authenticated %}
+            <li><a href="/register/">Register</a></li>
+            <li>
+              <span class="or">or</span>
+              <a href="/login/">Sing in</a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+              <li>
+                <a href="/">Logout</a>
+              </li>
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="searchblock">
+      <div class="search-content">
+        <form>
+          <input type="text" name="search" placeholder="Search..">
+        </form>
+      </div>
+    </div>
+    <div id="conteiner">
+    <nav id="menu1">
+      <a class="open" href="#nav" title="Show navigation">
+        <img src="{% static 'img/menu.png' %}">
+      </a>
+      <a class="close" href="#" title="Hide navigation">
+        <img src="{% static 'img/close.png' %}">
+      </a>
+      <ul class="menulist">
+          <li><a href="/">Home</a></li>
+          <li id="submenu">
+            <a href="/alldepartments/">All departments</a>
+            <ul>
+              {% for C in Category %}
+                <li><a href="{% url 'category' pk=C.pk %}">{{C.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/products/">Vehicles</a></li>
+          <li><a href="/products/">Jewelry</a></li>
+          <li><a href="/products/">Watches</a></li>
+          <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+  {% block content %}
+  {% endblock %}
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <ul>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <ul>
+            <li><a href="/">Contact</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a href="/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-address">
+        <ul>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="/static/js/all.js"></script>
+  {% block scriptin %}
+  {% endblock %}
+  <script>
+    $(document).ready(function(){
+      $("#menu1 > ul > li:not(:last-child)").after(' <li class="razd">&nbsp;</li>');
+    });
+  </script>
+
+</body>
+
+</html>

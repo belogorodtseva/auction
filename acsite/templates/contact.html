@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+
+<header class="contact-header">
+  <h1>Company Info</h1>
+  <div class="line"></div>
+</header>
+
+  <!--Top products-->
+  <div class="contact-content">
+
+    <div class="contact-section">
+      <h2>A BETTER WAY TO SELL AND BID ON SURPLUS!</h2>
+      <p>Online-Auction is a convenient and easy-to-use online auction website for government agencies, schools,
+        authorities and utilities to sell their surplus and forfeitures directly to the public.
+        All auctions take place online and are available to bid 24 hours a day.</p>
+    </div>
+
+
+    <div class="contact-button">
+      <a id="register" href="/register/">Register</a>
+      <a id="login" href="/login/">Sing in</a>
+    </div>
+
+
+    <div class="contact-map">
+      <h2>FIND US!</h2>
+      <div id="map"></div>
+    </div>
+
+  </div>
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="/static/js/map.js"></script>
+
+
+{% endblock %}

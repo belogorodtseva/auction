@@ -1,0 +1,301 @@
+$font-stack:    Helvetica, sans-serif
+$primary-color: #f1c40f
+$grey-color: #bdc3c7
+$dark-color: #212121
+$white-color: #F5F5F5
+$main-width: 1100px
+$tablet: "(min-width: 768px) and (max-width: 1023px)"
+$desktop: "(min-width: 1024px)"
+
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+  background-color: $white-color
+  margin: 0
+
+a
+  text-decoration: none
+  &:hover
+    text-decoration: none
+
+#mainheader
+  display: block
+  margin: 0
+  padding: 0
+  width: 100%
+  background-color: $dark-color
+  .topmenu
+    height: 4vh
+    background-color: $primary-color
+    .topmenu-content
+      ul
+        list-style: none
+        display: block
+        float: right
+        margin-top: 1vh
+        li
+          display: inline-block
+          width: auto
+          margin: 0
+          span
+            color: $white-color
+            font-size: 1.5vh
+            margin-left: 2vh
+            margin-right: 2vh
+          a
+            color: $dark-color
+            font-size: 1.7vh
+            text-decoration: none
+            margin-left: 2vh
+            margin-right: 2vh
+            &:hover
+              color: $white-color
+      max-width: $main-width
+      margin: 0 auto
+      #logo
+        img
+          height: 3vh
+          padding-top: 0.5vh
+        font-size: 3vh
+        color: $dark-color
+
+
+
+  .searchblock
+    height: 6vh
+    .search-content
+      max-width: $main-width
+      margin: 0 auto
+      padding-top: 1vh
+
+      input[type=text]
+        width: 15vw
+        box-sizing: border-box
+        border: 2px solid $grey-color
+        border-radius: 4px
+        font-size: 2vh
+        background-color: $white-color
+        background-image: url('searchicon.png')
+        background-position: left
+        background-size: contain
+        background-repeat: no-repeat
+        padding: 0.5vh 1vh 0.5vh 4vh
+        -webkit-transition: width 0.4s ease-in-out
+        transition: width 0.4s ease-in-out
+        &:focus
+          width: 70%
+          outline: 2px solid $primary-color
+
+
+
+  #conteiner
+    width: $main-width
+    height: auto
+    margin: 0px auto
+
+#menu1
+  position: relative
+  display: block
+  width: 100%
+  height: auto
+  z-index: 10
+  .open
+    display: none
+  .close
+    display: none
+  ul
+    position: relative
+    display: block
+    margin: 0px
+    padding: 0px
+    width: 100%
+    height: auto
+    list-style: none
+    li.razd
+      height: 3.5vh
+      width: 1px
+      background: $grey-color
+      margin-top: 1vh
+    li
+      position: relative
+      display: inline-block
+      width: auto
+      height: auto
+      vertical-align: top
+      text-align: left
+      a
+        display: block
+        padding: 2vh 2vh 0 2vh
+        font-size: 1.6vh
+        font-family: Arial, sans-serif
+        color: $white-color
+        line-height: 2vh
+        text-decoration: none
+        font-weight: bold
+        text-transform: uppercase
+        height: 5.5vh
+        box-sizing: border-box
+      > a:hover, &:hover > a
+        color: $primary-color
+      ul
+        position: absolute
+        left: 0
+        display: none
+        width: 100%
+        white-space: nowrap
+        background-color: $dark-color
+      &:last-child ul
+        /*последний пункт будет прикреплен по правому краю
+        left: auto
+        right: 0px
+      &:hover ul
+        display: block
+      ul li
+        display: block
+        width: auto
+        a
+          display: block
+          text-transform: none
+          height: auto
+          padding: 1vh 2vh
+          width: auto
+          box-sizing: border-box
+          border-top: 1px solid $grey-color
+        &:first-child a
+          //border-top: 0px
+        a:hover
+          color: $primary-color
+  > ul
+    text-align: justify
+    font-size: 1px
+    line-height: 1px
+    &::after
+      display: inline-block
+      width: 100%
+      height: 0px
+      content: " "
+
+footer
+  background-color: $dark-color
+  display: flex
+  bottom: 0
+  width: 100%
+  .footer-content
+    max-width: $main-width
+    margin: 0 auto
+    color: $white-color
+
+
+@media screen and ( min-width: 768px ) and ( max-width: 1280px )
+  #mainheader
+    .searchblock
+      height: 6vh
+      .search-content
+        padding: 1vh
+        input[type=text]
+          width: 60vw
+          &:focus
+            width: 90vw
+
+    #conteiner
+      width: 100%
+
+    #menu1
+      .open
+        display: block
+        height: 5vh
+        width: 100%
+        background-color: $dark-color
+        img
+          float: right
+          height: 100%
+      .activeopen
+        display: none
+      .close
+        display: none
+      .activeclose
+        display: block
+        height: 5vh
+        width: 100%
+        background-color: $dark-color
+        img
+          float: right
+          height: 100%
+          margin-right: 2vh
+      .active
+        display: block
+
+      ul
+        display: none
+        li.razd
+          display: none
+        li
+          display: block
+
+
+
+@media screen and ( max-width: 768px )
+  #mainheader
+    .topmenu
+      .topmenu-content
+        ul
+          li
+            span
+              font-size: 2vh
+            a
+              font-size: 2.2vh
+        #logo
+          img
+            padding: 0.5vh
+
+    .searchblock
+      height: 6vh
+      .search-content
+        padding: 1vh
+        input[type=text]
+          width: 60vw
+          &:focus
+            width: 90vw
+
+    #conteiner
+      width: 100%
+
+  #menu1
+    .open
+      display: block
+      height: 5vh
+      width: 100%
+      background-color: $dark-color
+      img
+        float: right
+        height: 100%
+    .activeopen
+      display: none
+    .close
+      display: none
+    .activeclose
+      display: block
+      height: 5vh
+      width: 100%
+      background-color: $dark-color
+      img
+        float: right
+        height: 100%
+        margin-right: 2vh
+    .active
+      display: block
+
+    ul
+      display: none
+      li.razd
+        display: none
+      li
+        display: block
+
+
+
+
+  footer
+
+    .footer-content

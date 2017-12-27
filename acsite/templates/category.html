@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/category.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+
+<!--Top products-->
+<div class="products-content">
+
+  <!--Category top-->
+  <div class="product-row">
+    <!--Category header-->
+    <header>
+      {% for T in This %}
+      <img src="{{ T.icon.url }}">
+      <div class="line"></div>
+      <h2>{{ T.name }}</h2>
+      <h3>We offer affordable used cars, trucks and vans – hybrids, 4X4s, dump trucks and more</h3>
+      {% endfor %}
+    </header>
+
+    <!--Category products-->
+    <div class="products-section">
+
+      {% for P in Products %}
+      <!--Uno product section-->
+      <div class="product-uno">
+        <a href="{% url 'product' pk=P.pk %}">
+        <div class="product-image" style="background-image:url({{ P.photo.url }});">
+          <div class="product-price">
+            <p>{{ P.price }}</p>
+          </div>
+        </div></a>
+        <div class="product-detail">
+          <div class="product-name">
+            <a href="{% url 'product' pk=P.pk %}"> {{ P.name }}</a>
+          </div>
+          <div class="product-time">
+            <p>Time left | {{ P.datefinish }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      <div class="pagination">
+         <span class="step-links">
+             {% if Products.has_previous %}
+                 <a href="?page={{ Products.previous_page_number }}">назад</a>
+             {% endif %}
+
+             <span class="current">
+                 страница {{ Products.number }} из {{ Products.paginator.num_pages }}
+             </span>
+
+             {% if Products.has_next %}
+                 <a href="?page={{ Products.next_page_number }}">вперед</a>
+             {% endif %}
+         </span>
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scriptin %}
+{% endblock %}

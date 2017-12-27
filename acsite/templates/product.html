@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/product.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+<div class="product-row">
+  {% for P in Product %}
+  <!--Category top-->
+  <div class="product-header">
+    <!--Category header-->
+    <header>
+      <div class="line"></div>
+      <h2>{{ P.name }}</h2>
+    </header>
+  </div>
+
+  <div class="product-content">
+    <div class="product-photo">
+      <div class=bigimg></div>
+      <div class="small-block">
+      {% for I in Image %}
+        <div class="smallimg"  style="background-image:url({{ I.photo.url }});"></div>
+      {% endfor %}
+      {% for I in Image %}
+        <div class="smallimg"  style="background-image:url({{ I.photo.url }});"></div>
+      {% endfor %}
+
+      </div>
+    </div>
+
+
+    <div class="product-info">
+      <div class="product-desc">
+        <p>{{ P.description }}</p>
+      </div>
+      <div class="current-price">
+        <p>{{ P.price }}</p>
+      </div>
+      <div class="product-bid">
+        <input type="text" name="price" placeholder="Your price..">
+        <button type="submit">BID NOW</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="product-time">
+    <div class="product-left">
+      <p><b>Time Left:</b></p>
+      <p>{{ TimeTime }}</p>
+      <p>{{ TimeDay }}</p>
+    </div>
+    <div class="product-date">
+      <p><b>Ends: </b>{{ P.datefinish }}</p>
+    </div>
+  </div>
+
+  <div class="see-more">
+    See more in this category
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block scriptin %}
+
+<script src="/static/js/product.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/add.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <div class="add-content">
+    <header>
+      <div class="line"></div>
+      <h2>Add product</h2>
+    </header>
+    <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>  
+{% endblock %}
+
+{% block scriptin %}
+
+<script>
+
+
+</script>
+{% endblock %}
