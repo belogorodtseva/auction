@@ -1,33 +1,35 @@
 {% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/log.css' %}" type = "text/css"/>
+  <title>Sing in</title>
+  <meta name="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sing in" />
+  <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
+  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+
+  <meta itemprop="name" content="Sing in" />
+  <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
+  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+{% endblock %}
 
 {% block content %}
 
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-12 text-center" style="top:100px;">
-              <h2>LOGIN</h2>
-              <br>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-sm-4 portfolio-item">
-
-
-          </div>
-          <div class="col-sm-4 portfolio-item"style="top:100px;">
-
-          <form method="POST" class="post-form" style="margin-left:30% ; margin-right:30%">{% csrf_token %}
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-default">Login</button>
-          </form>
-
-          </div>
-          <div class="col-sm-4 portfolio-item">
-
-          </div>
-
-
-      </div>
+<div class="content">
+  <div class="log-content">
+    <header>
+      <div class="line"></div>
+      <h2>SING IN</h2>
+    </header>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sing IN</button>
+    </form>
   </div>
+</div>
+
 {% endblock %}

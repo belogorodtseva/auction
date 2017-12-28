@@ -185,6 +185,42 @@ footer
     max-width: $main-width
     margin: 0 auto
     color: $white-color
+    width: 100%
+
+    div
+      display: inline-block
+      width: 32%
+      float: left
+      ul
+        list-style: none
+        padding-left: 25px
+        border-left: 2px solid $primary-color
+        li
+          font-size: 2vh
+          color: $primary-color
+          font-weight: 600
+          margin-top: 0.7vh
+          a
+            font-weight: normal
+            font-size: 1.8vh
+            color: $white-color
+            &:hover
+              color: $primary-color
+    .footer-accept
+      li
+        display: inline
+        img
+          height: 3vh
+          opacity: 0.8
+          cursor: pointer
+          &:hover
+            opacity: 1
+      ul
+        li:first-child
+          margin-bottom: 1vh
+          display: block
+
+
 
 
 @media screen and ( min-width: 768px ) and ( max-width: 1280px )

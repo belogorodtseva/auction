@@ -1,42 +1,43 @@
-{% extends "index.html" %}
+{% extends 'index.html' %}
 {% load staticfiles %}
 
 {% block headin %}
-  <link rel="stylesheet" href="{% static 'css/alldepartments.css' %}" type = "text/css"/>
-  <title>All Departments</title>
+  <link rel="stylesheet" href="{% static 'css/log.css' %}" type = "text/css"/>
+  <title>Sing up</title>
   <meta name="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!"/>
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="All Departments" />
+  <meta property="og:title" content="Sing up" />
   <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
   <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
 
-  <meta itemprop="name" content="All Departments" />
+  <meta itemprop="name" content="Sing up" />
   <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
   <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}
 
-
-  <h1>All departments</h1>
-
-  <!--Top products-->
-  <div class="departments-content">
-    {% for D in Departments %}
-    <div class="department-row">
-        <img src="{{ D.icon.url }}">
-        <div class="line"></div>
-        <a href="{% url 'category' pk=D.pk %}"><h2>{{ D.name }}</h2></a>
-    </div>
-    {% endfor %}
+<div class="content">
+  <div class="log-content">
+    <header>
+      <div class="line"></div>
+      <h2>SING UP</h2>
+    </header>
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <p>
+          {{ field.label_tag }}
+          {{ field }}
+          {% for error in field.errors %}
+            <p id="error">{{ error }}</p>
+          {% endfor %}
+        </p>
+      {% endfor %}
+    <button type="submit">Sing UP</button>
+    </form>
   </div>
+</div>
 
-
-{% endblock %}
-
-{% block scriptin %}
-<script>
-
-</script>
 {% endblock %}

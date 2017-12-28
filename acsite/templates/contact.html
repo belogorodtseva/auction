@@ -3,6 +3,17 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/contact.css' %}" type = "text/css"/>
+  <title>Company Info</title>
+  <meta name="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Company Info" />
+  <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
+  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+
+  <meta itemprop="name" content="Company Info" />
+  <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
+  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}

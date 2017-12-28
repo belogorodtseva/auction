@@ -2,6 +2,9 @@ from django import forms
 from django.contrib.admin import widgets
 from acsite.models import Category
 
+
+
+
 final_choices =()
 
 for c in Category.objects.all():

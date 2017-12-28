@@ -19,13 +19,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import logout
+from acsite import views as core_views
 
-admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
+    url(r'^logout/$',  auth_views.logout, {'next_page': '/'}, name='logout'),
+    url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^', include('acsite.urls')),
 
 ]

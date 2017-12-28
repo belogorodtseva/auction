@@ -3,6 +3,17 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/product.css' %}" type = "text/css"/>
+  <title>{% for P in Product %}{{P.name}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Product %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{% for P in Product %}{{P.name}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Product %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://127.0.0.1:8000{% for P in Product %}{{P.photo.url}}{% endfor %}" />
+
+  <meta itemprop="name" content="{% for P in Product %}{{P.name}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Product %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://127.0.0.1:8000{% for P in Product %}{{P.photo.url}}{% endfor %}" />
 {% endblock %}
 
 {% block content %}
@@ -43,6 +54,8 @@
         <input type="text" name="price" placeholder="Your price..">
         <button type="submit">BID NOW</button>
       </div>
+      <a name="fb_share"></a>
+      <script src="https://www.facebook.com/connect.php/js/FB.Share" type="text/javascript"></script>
     </div>
 
   </div>
