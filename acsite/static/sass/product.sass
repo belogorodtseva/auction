@@ -8,6 +8,14 @@ $main-width: 1100px
 .product-row
   max-width: $main-width
   margin: 0 auto
+  .breadcrumbs
+    padding: 2vh
+    a
+      color: $dark-color
+      cursor: pointer
+      &:hover
+        color: $primary-color
+
   header
     margin-top: 3vh
     position: relative
@@ -136,3 +144,56 @@ $main-width: 1100px
   .see-more
     width: 100%
     display: inline-block
+
+@media screen and ( min-width: 768px ) and ( max-width: 1280px )
+  .product-row
+    .product-content
+      width: 100%
+      float: left
+      .product-info
+        width: 100%
+        float: right
+        .product-desc
+          padding: 2vh
+          font-size: 2vh
+          color: $dark-color
+        .current-price
+          display: flex
+        .product-bid
+          width: 80%
+          margin: 0 auto
+      .product-photo
+        width: 100%
+
+    .product-time
+      width: 80%
+      .product-date
+        width: 100%
+        float: left
+      .product-left
+        p
+          float: left
+
+
+@media screen and ( max-width: 768px )
+  .product-row
+    .product-content
+      width: 100%
+      float: left
+      .product-info
+        width: 100%
+        float: right
+        .product-desc
+          padding: 2vh
+          font-size: 2vh
+          color: $dark-color
+        .current-price
+          display: flex
+        .product-bid
+          width: 80%
+          margin: 0 auto
+      .product-photo
+        width: 100%
+
+    .product-time
+      width: 80%

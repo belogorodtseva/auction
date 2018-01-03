@@ -84,8 +84,23 @@ a
         -webkit-transition: width 0.4s ease-in-out
         transition: width 0.4s ease-in-out
         &:focus
-          width: 70%
+          width: 50vw
           outline: 2px solid $primary-color
+      button
+        box-sizing: border-box
+        cursor: pointer
+        padding: 0.5vh
+        border-radius: 4px
+        width: 10vw
+        font-size: 2vh
+        background-color: $primary-color
+        color: $dark-color
+        border: 2px solid $white-color
+        &:hover
+          border: 2px solid $grey-color
+        &:focus
+          outline: none
+          border: 2px solid $primary-color
 
 
 
@@ -230,9 +245,12 @@ footer
       .search-content
         padding: 1vh
         input[type=text]
-          width: 60vw
+          width: 50vw
           &:focus
-            width: 90vw
+            width: 50vw
+        button
+          width: 20vw
+
 
     #conteiner
       width: 100%
@@ -290,9 +308,11 @@ footer
       .search-content
         padding: 1vh
         input[type=text]
-          width: 60vw
+          width: 45vw
           &:focus
-            width: 90vw
+            width: 45vw
+        button
+          width: 20vw
 
     #conteiner
       width: 100%

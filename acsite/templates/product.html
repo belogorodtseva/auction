@@ -18,7 +18,11 @@
 
 {% block content %}
 <div class="product-row">
+
   {% for P in Product %}
+  <div class="breadcrumbs">
+    <a href="/">Home</a>-<a href="{% url 'category' pk=P.category.pk %}">{{P.category}}</a>-<a>{{P.name}}</a>
+  </div>
   <!--Category top-->
   <div class="product-header">
     <!--Category header-->

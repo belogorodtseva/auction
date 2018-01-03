@@ -47,7 +47,6 @@
             {% if user.is_authenticated %}
               <li>
                 <a href="/logout/">Logout</a>
-
               </li>
             {% endif %}
         </ul>
@@ -56,9 +55,8 @@
 
     <div class="searchblock">
       <div class="search-content">
-        <form>
-          <input type="text" name="search" placeholder="Search..">
-        </form>
+          <input id="search" type="text" name="search" placeholder="Search..">
+          <button class="sbutton">SEARCH</button>
       </div>
     </div>
     <div id="conteiner">
@@ -79,9 +77,15 @@
               {% endfor %}
             </ul>
           </li>
-          <li><a href="/products/">Vehicles</a></li>
-          <li><a href="/products/">Jewelry</a></li>
-          <li><a href="/products/">Watches</a></li>
+          <li><a href="/news/">News</a></li>
+          {% if not user.is_authenticated %}
+          <li><a href="/signup/">Sing up</a></li>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <li>
+              <a href="/add/">Add product</a>
+            </li>
+          {% endif %}
           <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>

@@ -68,8 +68,33 @@ def contact(request):
     }
     return render(request, 'contact.html', content)
 
+def news(request):
+    category = Category.objects.order_by("-name")
+    content = {
+        'Category' : Category.objects.all(),
+        'Departments' : category,
+    }
+    return render(request, 'news.html', content)
+
 def category(request, pk):
     productlist = Product.objects.filter(category=pk).order_by("-datefinish")
+    paginator = Paginator(productlist, 9)
+    page = request.GET.get('page')
+    try:
+        product = paginator.page(page)
+    except PageNotAnInteger:
+        product = paginator.page(1)
+    except EmptyPage:
+        product = paginator.page(paginator.num_pages)
+    content = {
+        'Category' : Category.objects.all(),
+        'This' : Category.objects.filter(pk=pk),
+        'Products' : product,
+    }
+    return render(request, 'category.html', content)
+
+def search(request, search):
+    productlist = Product.objects.filter(name__contains=search).order_by("-datefinish")
     paginator = Paginator(productlist, 1)
     page = request.GET.get('page')
     try:
@@ -82,10 +107,10 @@ def category(request, pk):
         product = paginator.page(paginator.num_pages)
     content = {
         'Category' : Category.objects.all(),
-        'This' : Category.objects.filter(pk=pk),
         'Products' : product,
+        'Search' : search,
     }
-    return render(request, 'category.html', content)
+    return render(request, 'search.html', content)
 
 
 def product(request, pk):

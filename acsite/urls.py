@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^category/(?P<pk>[0-9]+)/', views.category, name='category'),
     url(r'^alldepartments/', views.alldepartments, name='alldepartments'),
     url(r'^contact/', views.contact, name='contact'),
+    url(r'^news/', views.news, name='news'),
+    url(r'^search/(?P<search>\w+)',  views.search, name='search'),
     ]

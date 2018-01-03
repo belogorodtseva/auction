@@ -12,6 +12,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
+
 class Product(models.Model):
     name = models.CharField(max_length=250)
     description = models.TextField(max_length=2000, blank=True, null=True)

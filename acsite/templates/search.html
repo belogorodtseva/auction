@@ -3,17 +3,14 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/category.css' %}" type = "text/css"/>
-  <title>{% for P in This %}{{P.title}}{% endfor %}</title>
-  <meta name="description" content="{% for P in Product %}{{P.description}}{% endfor %}"/>
+  <title>Search results</title>
+  <meta name="description" content="Search results"/>
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{% for P in This %}{{P.title}}{% endfor %}" />
-  <meta property="og:description" content="{% for P in This %}{{P.description}}{% endfor %}" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% for P in This %}{{P.icon.url}}{% endfor %}" />
-
-  <meta itemprop="name" content="{% for P in This %}{{P.title}}{% endfor %}" />
-  <meta itemprop="description" content="{% for P in This %}{{P.description}}{% endfor %}" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% for P in This %}{{P.icon.url}}{% endfor %}" />
+  <meta property="og:title" content="Search results" />
+  <meta property="og:description" content="Search results" />
+  <meta itemprop="name" content="Search results" />
+  <meta itemprop="description" content="Search results" />
 {% endblock %}
 
 {% block content %}
@@ -24,20 +21,15 @@
   <!--Category top-->
   <div class="product-row">
     <div class="breadcrumbs">
-      <a href="/">Home</a>-<a>{% for T in This %}{{T.name}}{% endfor %}</a>
+      <a href="/">Home</a>-<a>Search results for {{Search}}</a>
     </div>
     <!--Category header-->
     <header>
-      {% for T in This %}
-      <img src="{{ T.icon.url }}">
       <div class="line"></div>
-      <h2>{{ T.name }}</h2>
-      <h3>We offer affordable used cars, trucks and vans – hybrids, 4X4s, dump trucks and more</h3>
-      {% endfor %}
+      <h2>Search results for {{Search}}</h2>
     </header>
 
     {% if Products %}
-
     <!--Category products-->
     <div class="products-section">
       {% for P in Products %}
