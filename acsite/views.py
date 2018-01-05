@@ -39,8 +39,8 @@ def index(request):
     top1 = Category.objects.order_by("name")[:1]
     top2 = Category.objects.order_by("name")[1:2]
 
-    product1 = Product.objects.filter(category=top1).order_by("-datefinish")[:3]
-    product2 = Product.objects.filter(category=top2).order_by("-datefinish")[:3]
+    product1 = Product.objects.filter(category=top1).order_by("datefinish")[:3]
+    product2 = Product.objects.filter(category=top2).order_by("datefinish")[:3]
     content = {
         'Category' : Category.objects.all(),
         'Top1' : top1,
@@ -76,8 +76,17 @@ def news(request):
     }
     return render(request, 'news.html', content)
 
-def category(request, pk):
-    productlist = Product.objects.filter(category=pk).order_by("-datefinish")
+def category(request, pk, filter):
+    if filter == 'date':
+        productlist = Product.objects.filter(category=pk).order_by("datefinish")
+    elif filter == 'dateup':
+        productlist = Product.objects.filter(category=pk).order_by("-datefinish")
+    elif filter == 'lastday':
+        productlist = Product.objects.filter(category=pk).order_by("datefinish")
+    elif filter == 'price':
+        productlist = Product.objects.filter(category=pk).order_by("-price")
+    elif filter == 'priceup':
+        productlist = Product.objects.filter(category=pk).order_by("price")
     paginator = Paginator(productlist, 9)
     page = request.GET.get('page')
     try:
@@ -92,6 +101,7 @@ def category(request, pk):
         'Products' : product,
     }
     return render(request, 'category.html', content)
+
 
 def search(request, search):
     productlist = Product.objects.filter(name__contains=search).order_by("-datefinish")
@@ -127,7 +137,7 @@ def product(request, pk):
         'TimeTime' : c[0],
         'Category' : Category.objects.all(),
         'Product' : Product.objects.filter(pk=pk),
-        'Image' : Image.objects.filter(product=pk),
+        'Image' : Image.objects.filter(product=pk)[:5],
     }
     return render(request, 'product.html', content)
 

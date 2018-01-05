@@ -30,6 +30,10 @@
 </head>
 
 <body>
+  <div class="block">
+    rotate
+  </div>
+  <div class="wrap">
   <header id="mainheader">
     <div class="topmenu">
       <div class="topmenu-content">
@@ -73,7 +77,7 @@
             <a href="/alldepartments/">All departments</a>
             <ul>
               {% for C in Category %}
-                <li><a href="{% url 'category' pk=C.pk %}">{{C.name}}</a></li>
+                <li><a href="{% url 'category' pk=C.pk filter='date' %}">{{C.name}}</a></li>
               {% endfor %}
             </ul>
           </li>
@@ -93,6 +97,7 @@
   </header>
   {% block content %}
   {% endblock %}
+  </div>
   <footer>
     <div class="footer-content">
       <div class="footer-about">
@@ -138,11 +143,7 @@
   <script src="/static/js/all.js"></script>
   {% block scriptin %}
   {% endblock %}
-  <script>
-    $(document).ready(function(){
-      $("#menu1 > ul > li:not(:last-child)").after(' <li class="razd">&nbsp;</li>');
-    });
-  </script>
+
 
 </body>
 

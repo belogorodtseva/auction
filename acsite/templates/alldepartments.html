@@ -18,6 +18,11 @@
 
 {% block content %}
 
+<div class="breadcontent">
+  <div class="breadcrumbs">
+    <a href="/">Home</a>-<a>All departments</a>
+  </div>
+</div>
 
   <h1>All departments</h1>
 
@@ -27,7 +32,7 @@
     <div class="department-row">
         <img src="{{ D.icon.url }}">
         <div class="line"></div>
-        <a href="{% url 'category' pk=D.pk %}"><h2>{{ D.name }}</h2></a>
+        <a href="{% url 'category' pk=D.pk filter='date' %}"><h2>{{ D.name }}</h2></a>
     </div>
     {% endfor %}
   </div>

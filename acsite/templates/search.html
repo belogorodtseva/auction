@@ -3,7 +3,7 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/category.css' %}" type = "text/css"/>
-  <title>Search results</title>
+  <title>Search results for {{Search}}</title>
   <meta name="description" content="Search results"/>
 
   <meta property="og:type" content="website" />
@@ -46,7 +46,7 @@
             <a href="{% url 'product' pk=P.pk %}"> {{ P.name }}</a>
           </div>
           <div class="product-time">
-            <p>Time left | {{ P.datefinish }}</p>
+            <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
       </div>

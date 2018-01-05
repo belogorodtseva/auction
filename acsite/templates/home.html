@@ -76,7 +76,7 @@
 
     <div class="seemore-products">
       {% for T in Top1 %}
-      <a href="{% url 'category' pk=T.pk %}">See more in this category</a>
+      <a href="{% url 'category' pk=T.pk filter='date' %}">See more in this category &#9658;&#9658;</a>
       {% endfor %}
     </div>
 
@@ -113,7 +113,7 @@
             <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
           </div>
           <div class="product-time">
-            <p>Time left | {{ P.datefinish }}</p>
+            <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@
             <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
           </div>
           <div class="product-time">
-            <p>Time left | {{ P.datefinish }}</p>
+            <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@
 
     <div class="seemore-products">
       {% for T in Top2 %}
-      <a href="{% url 'category' pk=T.pk %}">See more in this category</a>
+      <a href="{% url 'category' pk=T.pk filter='date' %}">See more in this category &#9658;&#9658;</a>
       {% endfor %}
     </div>
 
@@ -159,50 +159,7 @@
 {% endblock %}
 
 {% block scriptin %}
-<script>
-jQuery(document).ready(function ($) {
 
-  //setInterval(function () {
-  //      moveRight();
-  //}, 3000);
+<script src="/static/js/home.js"></script>
 
-	var slideCount = $('#slider ul li').length;
-	var slideWidth = $('#slider ul li').width();
-	var slideHeight = $('#slider ul li').height();
-	var sliderUlWidth = slideCount * slideWidth;
-
-	$('#slider').css({ width: slideWidth, height: slideHeight });
-
-	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
-
-    $('#slider ul li:last-child').prependTo('#slider ul');
-
-    function moveLeft() {
-        $('#slider ul').animate({
-            left: + slideWidth
-        }, 200, function () {
-            $('#slider ul li:last-child').prependTo('#slider ul');
-            $('#slider ul').css('left', '');
-        });
-    };
-
-    function moveRight() {
-        $('#slider ul').animate({
-            left: - slideWidth
-        }, 200, function () {
-            $('#slider ul li:first-child').appendTo('#slider ul');
-            $('#slider ul').css('left', '');
-        });
-    };
-
-    $('a.control_prev').click(function () {
-        moveLeft();
-    });
-
-    $('a.control_next').click(function () {
-        moveRight();
-    });
-
-});
-</script>
 {% endblock %}

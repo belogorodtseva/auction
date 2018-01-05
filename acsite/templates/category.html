@@ -34,10 +34,18 @@
       <h2>{{ T.name }}</h2>
       <h3>We offer affordable used cars, trucks and vans – hybrids, 4X4s, dump trucks and more</h3>
       {% endfor %}
-    </header>
+  </header>
 
     {% if Products %}
-
+      {% for T in This %}
+      <div class="category-filters">
+        <a href="{% url 'category' pk=T.pk filter='date' %}"> date &#9660;</a>
+        <a href="{% url 'category' pk=T.pk filter='dateup' %}"> date &#9650;</a>
+        <a href="{% url 'category' pk=T.pk filter='price' %}"> price &#9660;</a>
+        <a href="{% url 'category' pk=T.pk filter='priceup' %}"> price &#9650;</a>
+        <a href="{% url 'category' pk=T.pk filter='lastday' %}"> lastday</a>
+      </div>
+      {% endfor %}
     <!--Category products-->
     <div class="products-section">
       {% for P in Products %}
@@ -54,7 +62,7 @@
             <a href="{% url 'product' pk=P.pk %}"> {{ P.name }}</a>
           </div>
           <div class="product-time">
-            <p>Time left | {{ P.datefinish }}</p>
+            <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
       </div>
@@ -93,4 +101,5 @@
 {% endblock %}
 
 {% block scriptin %}
+<script src="/static/js/category.js"></script>
 {% endblock %}

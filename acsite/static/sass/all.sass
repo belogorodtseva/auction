@@ -4,13 +4,11 @@ $grey-color: #bdc3c7
 $dark-color: #212121
 $white-color: #F5F5F5
 $main-width: 1100px
-$tablet: "(min-width: 768px) and (max-width: 1023px)"
-$desktop: "(min-width: 1024px)"
 
 
 body
-  font: 100% $font-stack
-  color: $primary-color
+  font: 100% Helvetica,sans-serif
+  color: #f1c40f
   background-color: $white-color
   margin: 0
 
@@ -18,6 +16,20 @@ a
   text-decoration: none
   &:hover
     text-decoration: none
+
+.wrap
+  min-height: 72vh
+
+.block
+  position: fixed
+  height: 100vh
+  width: 100vw
+  display: none
+  z-index: 100
+  background-color: $dark-color
+  color: $white-color
+  font-size: 5vh
+  padding: 5vh
 
 #mainheader
   display: block
@@ -29,6 +41,8 @@ a
     height: 4vh
     background-color: $primary-color
     .topmenu-content
+      max-width: 1100px
+      margin: 0 auto
       ul
         list-style: none
         display: block
@@ -39,7 +53,7 @@ a
           width: auto
           margin: 0
           span
-            color: $white-color
+            color: #F5F5F5
             font-size: 1.5vh
             margin-left: 2vh
             margin-right: 2vh
@@ -51,45 +65,41 @@ a
             margin-right: 2vh
             &:hover
               color: $white-color
-      max-width: $main-width
-      margin: 0 auto
       #logo
-        img
-          height: 3vh
-          padding-top: 0.5vh
         font-size: 3vh
         color: $dark-color
-
-
-
+        img
+          height: 3vh
+          padding-top: .5vh
   .searchblock
     height: 6vh
     .search-content
-      max-width: $main-width
+      max-width: 1100px
       margin: 0 auto
       padding-top: 1vh
-
       input[type=text]
         width: 15vw
+        -webkit-box-sizing: border-box
         box-sizing: border-box
         border: 2px solid $grey-color
         border-radius: 4px
         font-size: 2vh
-        background-color: $white-color
-        background-image: url('searchicon.png')
+        background-color: #F5F5F5
+        background-image: url("searchicon.png")
         background-position: left
         background-size: contain
         background-repeat: no-repeat
-        padding: 0.5vh 1vh 0.5vh 4vh
-        -webkit-transition: width 0.4s ease-in-out
-        transition: width 0.4s ease-in-out
+        padding: .5vh 1vh .5vh 4vh
+        -webkit-transition: width .4s ease-in-out
+        transition: width .4s ease-in-out
         &:focus
           width: 50vw
           outline: 2px solid $primary-color
       button
+        -webkit-box-sizing: border-box
         box-sizing: border-box
         cursor: pointer
-        padding: 0.5vh
+        padding: .5vh
         border-radius: 4px
         width: 10vw
         font-size: 2vh
@@ -101,11 +111,8 @@ a
         &:focus
           outline: none
           border: 2px solid $primary-color
-
-
-
   #conteiner
-    width: $main-width
+    width: 1100px
     height: auto
     margin: 0px auto
 
@@ -115,9 +122,7 @@ a
   width: 100%
   height: auto
   z-index: 10
-  .open
-    display: none
-  .close
+  .open, .close
     display: none
   ul
     position: relative
@@ -127,12 +132,12 @@ a
     width: 100%
     height: auto
     list-style: none
-    li.razd
-      height: 3.5vh
-      width: 1px
-      background: $grey-color
-      margin-top: 1vh
     li
+      &.razd
+        height: 3.5vh
+        width: 1px
+        background: $grey-color
+        margin-top: 1vh
       position: relative
       display: inline-block
       width: auto
@@ -143,13 +148,13 @@ a
         display: block
         padding: 2vh 2vh 0 2vh
         font-size: 1.6vh
-        font-family: Arial, sans-serif
-        color: $white-color
+        color: #F5F5F5
         line-height: 2vh
         text-decoration: none
         font-weight: bold
         text-transform: uppercase
         height: 5.5vh
+        -webkit-box-sizing: border-box
         box-sizing: border-box
       > a:hover, &:hover > a
         color: $primary-color
@@ -161,7 +166,6 @@ a
         white-space: nowrap
         background-color: $dark-color
       &:last-child ul
-        /*последний пункт будет прикреплен по правому краю
         left: auto
         right: 0px
       &:hover ul
@@ -175,12 +179,11 @@ a
           height: auto
           padding: 1vh 2vh
           width: auto
+          -webkit-box-sizing: border-box
           box-sizing: border-box
           border-top: 1px solid $grey-color
-        &:first-child a
-          //border-top: 0px
-        a:hover
-          color: $primary-color
+          &:hover
+            color: $primary-color
   > ul
     text-align: justify
     font-size: 1px
@@ -193,15 +196,17 @@ a
 
 footer
   background-color: $dark-color
+  display: -webkit-box
+  display: -ms-flexbox
   display: flex
   bottom: 0
   width: 100%
+  height: 28vh
   .footer-content
-    max-width: $main-width
+    max-width: 1100px
     margin: 0 auto
-    color: $white-color
+    color: #F5F5F5
     width: 100%
-
     div
       display: inline-block
       width: 32%
@@ -214,7 +219,7 @@ footer
           font-size: 2vh
           color: $primary-color
           font-weight: 600
-          margin-top: 0.7vh
+          margin-top: .7vh
           a
             font-weight: normal
             font-size: 1.8vh
@@ -226,19 +231,15 @@ footer
         display: inline
         img
           height: 3vh
-          opacity: 0.8
+          opacity: .8
           cursor: pointer
           &:hover
             opacity: 1
-      ul
-        li:first-child
-          margin-bottom: 1vh
-          display: block
+      ul li:first-child
+        margin-bottom: 1vh
+        display: block
 
-
-
-
-@media screen and ( min-width: 768px ) and ( max-width: 1280px )
+@media screen and (min-width: 768px) and (max-width: 1280px)
   #mainheader
     .searchblock
       height: 6vh
@@ -250,11 +251,8 @@ footer
             width: 50vw
         button
           width: 20vw
-
-
     #conteiner
       width: 100%
-
     #menu1
       .open
         display: block
@@ -264,9 +262,7 @@ footer
         img
           float: right
           height: 100%
-      .activeopen
-        display: none
-      .close
+      .activeopen, .close
         display: none
       .activeclose
         display: block
@@ -279,30 +275,23 @@ footer
           margin-right: 2vh
       .active
         display: block
-
       ul
         display: none
-        li.razd
-          display: none
         li
+          &.razd
+            display: none
           display: block
 
-
-
-@media screen and ( max-width: 768px )
+@media screen and (max-width: 768px)
   #mainheader
-    .topmenu
-      .topmenu-content
-        ul
-          li
-            span
-              font-size: 2vh
-            a
-              font-size: 2.2vh
-        #logo
-          img
-            padding: 0.5vh
-
+    .topmenu .topmenu-content
+      ul li
+        span
+          font-size: 2vh
+        a
+          font-size: 2.2vh
+      #logo img
+        padding: .5vh
     .searchblock
       height: 6vh
       .search-content
@@ -313,10 +302,10 @@ footer
             width: 45vw
         button
           width: 20vw
-
+        .sbutton::after
+          content: #128269
     #conteiner
       width: 100%
-
   #menu1
     .open
       display: block
@@ -326,9 +315,7 @@ footer
       img
         float: right
         height: 100%
-    .activeopen
-      display: none
-    .close
+    .activeopen, .close
       display: none
     .activeclose
       display: block
@@ -341,17 +328,13 @@ footer
         margin-right: 2vh
     .active
       display: block
-
     ul
       display: none
-      li.razd
-        display: none
       li
+        &.razd
+          display: none
         display: block
 
-
-
-
-  footer
-
-    .footer-content
+@media screen and (orientation: landscape) and (max-width: 900px)
+  .block
+    display: block
