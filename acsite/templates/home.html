@@ -63,7 +63,7 @@
             <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
           </div>
           <div class="product-time">
-            <p>Time left | {{ P.datefinish }}</p>
+            <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
       </div>
@@ -119,30 +119,6 @@
       </div>
 
       {% endfor %}
-
-      {% for P in Product2 %}
-      <!--Uno product section-->
-
-      <div class="product-uno">
-        <a href="{% url 'product' pk=P.pk %}">
-        <div class="product-image" style="background-image:url({{ P.photo.url }})">
-          <div class="product-price">
-            <p>{{ P.price }}</p>
-          </div>
-        </div></a>
-        <div class="product-detail">
-          <div class="product-name">
-            <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
-          </div>
-          <div class="product-time">
-            <p>Time finish | {{ P.datefinish }}</p>
-          </div>
-        </div>
-      </div>
-
-      {% endfor %}
-
-
 
 
     </div>

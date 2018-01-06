@@ -5,6 +5,12 @@ $dark-color: #212121
 $white-color: #F5F5F5
 $main-width: 1100px
 
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
 
 body
   font: 100% Helvetica,sans-serif
@@ -53,7 +59,7 @@ a
           width: auto
           margin: 0
           span
-            color: #F5F5F5
+            color: $white-color
             font-size: 1.5vh
             margin-left: 2vh
             margin-right: 2vh
@@ -80,9 +86,12 @@ a
       input[type=text]
         width: 15vw
         -webkit-box-sizing: border-box
+        -moz-box-sizing: border-box
+        -ms-box-sizing: border-box
+        -o-box-sizing: border-box
         box-sizing: border-box
         border: 2px solid $grey-color
-        border-radius: 4px
+        +border-radius(4px)
         font-size: 2vh
         background-color: #F5F5F5
         background-image: url("searchicon.png")
@@ -97,10 +106,13 @@ a
           outline: 2px solid $primary-color
       button
         -webkit-box-sizing: border-box
+        -moz-box-sizing: border-box
+        -ms-box-sizing: border-box
+        -o-box-sizing: border-box
         box-sizing: border-box
         cursor: pointer
         padding: .5vh
-        border-radius: 4px
+        +border-radius(4px)
         width: 10vw
         font-size: 2vh
         background-color: $primary-color
@@ -155,6 +167,9 @@ a
         text-transform: uppercase
         height: 5.5vh
         -webkit-box-sizing: border-box
+        -moz-box-sizing: border-box
+        -ms-box-sizing: border-box
+        -o-box-sizing: border-box
         box-sizing: border-box
       > a:hover, &:hover > a
         color: $primary-color
@@ -180,6 +195,9 @@ a
           padding: 1vh 2vh
           width: auto
           -webkit-box-sizing: border-box
+          -moz-box-sizing: border-box
+          -ms-box-sizing: border-box
+          -o-box-sizing: border-box
           box-sizing: border-box
           border-top: 1px solid $grey-color
           &:hover
@@ -197,15 +215,17 @@ a
 footer
   background-color: $dark-color
   display: -webkit-box
+  display: -moz-box
   display: -ms-flexbox
+  display: -webkit-flex
   display: flex
   bottom: 0
   width: 100%
   height: 28vh
   .footer-content
-    max-width: 1100px
+    max-width: $main-width
     margin: 0 auto
-    color: #F5F5F5
+    color: $white-color
     width: 100%
     div
       display: inline-block

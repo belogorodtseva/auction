@@ -39,8 +39,8 @@ def index(request):
     top1 = Category.objects.order_by("name")[:1]
     top2 = Category.objects.order_by("name")[1:2]
 
-    product1 = Product.objects.filter(category=top1).order_by("datefinish")[:3]
-    product2 = Product.objects.filter(category=top2).order_by("datefinish")[:3]
+    product1 = Product.objects.filter(category=top1).order_by("datefinish")[:4]
+    product2 = Product.objects.filter(category=top2).order_by("datefinish")[:4]
     content = {
         'Category' : Category.objects.all(),
         'Top1' : top1,
@@ -82,7 +82,19 @@ def category(request, pk, filter):
     elif filter == 'dateup':
         productlist = Product.objects.filter(category=pk).order_by("-datefinish")
     elif filter == 'lastday':
-        productlist = Product.objects.filter(category=pk).order_by("datefinish")
+        productlist=[]
+        now = datetime.now(pytz.utc)
+        productx = Product.objects.filter(category=pk)
+        for p in productx:
+            x = str(now).split(" ")
+            y = str(p.datefinish).split(" ")
+            a = str(x[0]).split("-")
+            b = str(y[0]).split("-")
+            if a[2]==b[2]:
+                print(a[2])
+                print(b[2])
+                productlist.append(p)
+        print(productlist)
     elif filter == 'price':
         productlist = Product.objects.filter(category=pk).order_by("-price")
     elif filter == 'priceup':
@@ -126,15 +138,21 @@ def search(request, search):
 def product(request, pk):
     product = Product.objects.filter(pk=pk)
     now = datetime.now(pytz.utc)
-    t = now.timetuple()
     for p in product:
         f = p.datefinish
         time = f - now
         x = str(time).split(",")
-        c = x[1].split(".")
+        if (len(x) > 1):
+            c = x[1].split(".")
+            time = c[0]
+            day = x[0]
+        else:
+            c=x[0].split(".")
+            time=c[0]
+            day="0 days"
     content = {
-        'TimeDay' : x[0],
-        'TimeTime' : c[0],
+        'TimeDay' : day,
+        'TimeTime' : time,
         'Category' : Category.objects.all(),
         'Product' : Product.objects.filter(pk=pk),
         'Image' : Image.objects.filter(product=pk)[:5],

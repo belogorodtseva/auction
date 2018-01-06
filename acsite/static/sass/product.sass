@@ -5,6 +5,12 @@ $dark-color: #212121
 $white-color: #F5F5F5
 $main-width: 1100px
 
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
 .product-row
   max-width: $main-width
   margin: 0 auto
@@ -50,6 +56,10 @@ $main-width: 1100px
         font-size: 1.5vh
         color: $dark-color
       .current-price
+        display: -webkit-box
+        display: -moz-box
+        display: -ms-flexbox
+        display: -webkit-flex
         display: flex
         p
           margin: 0 auto
@@ -59,8 +69,12 @@ $main-width: 1100px
         width: 80%
         margin: 0 auto
         input
+          -webkit-box-sizing: border-box
+          -moz-box-sizing: border-box
+          -ms-box-sizing: border-box
+          -o-box-sizing: border-box
           box-sizing: border-box
-          border-radius: 1.5vh
+          +border-radius(1.5vh)
           font-size: 2.2vh
           padding: 0.5vh
           background-color: $white-color
@@ -79,10 +93,14 @@ $main-width: 1100px
             border: 2px solid $primary-color
             outline: none
         button
+          -webkit-box-sizing: border-box
+          -moz-box-sizing: border-box
+          -ms-box-sizing: border-box
+          -o-box-sizing: border-box
           box-sizing: border-box
           cursor: pointer
           padding: 1vh
-          border-radius: 1.5vh
+          +border-radius(1.5vh)
           width: 50%
           margin: 0 auto
           font-size: 2.2vh
@@ -111,6 +129,10 @@ $main-width: 1100px
         width: 20%
         overflow: hidden
         .smallimg
+          -webkit-box-sizing: border-box
+          -moz-box-sizing: border-box
+          -ms-box-sizing: border-box
+          -o-box-sizing: border-box
           box-sizing: border-box
           width: 100%
           height: 6vh
@@ -130,7 +152,7 @@ $main-width: 1100px
     width: 20%
     float: right
     background-color: $dark-color
-    border-radius: 2vh
+    +border-radius(2vh)
     .product-date
       color: $white-color
       font-size: 2vh
@@ -163,6 +185,10 @@ $main-width: 1100px
           font-size: 2vh
           color: $dark-color
         .current-price
+          display: -webkit-box
+          display: -moz-box
+          display: -ms-flexbox
+          display: -webkit-flex
           display: flex
         .product-bid
           width: 80%
@@ -194,6 +220,10 @@ $main-width: 1100px
           font-size: 2vh
           color: $dark-color
         .current-price
+          display: -webkit-box
+          display: -moz-box
+          display: -ms-flexbox
+          display: -webkit-flex
           display: flex
         .product-bid
           width: 80%
