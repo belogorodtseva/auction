@@ -49,11 +49,17 @@
         <p>{{ P.description }}</p>
       </div>
       <div class="current-price">
-        <p>{{ P.price }}</p>
+        <p>{{ P.price }}$</p>
       </div>
       <div class="product-bid">
-        <input type="text" name="price" placeholder="Your price..">
-        <button type="submit">BID NOW</button>
+        <form method="post">
+          {% csrf_token %}
+
+          <p id="error">{{ form.error}}</p>
+
+          {{ form.startprice }}
+          <button type="submit">BID NOW</button>
+        </form>
       </div>
 
       <a name="fb_share" type="button">Share</a>

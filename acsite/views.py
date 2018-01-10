@@ -139,6 +139,7 @@ def product(request, pk):
     product = Product.objects.filter(pk=pk)
     now = datetime.now(pytz.utc)
     for p in product:
+        nowprice = p.price
         f = p.datefinish
         time = f - now
         x = str(time).split(",")
@@ -150,7 +151,24 @@ def product(request, pk):
             c=x[0].split(".")
             time=c[0]
             day="0 days"
+
+    if request.method == 'POST':
+        form = BidForm(request.POST, request.FILES)
+        if form.is_valid():
+            startprice = form.cleaned_data['startprice']
+            if ((nowprice < startprice) and (request.user.get_username())):
+                Product.objects.filter(pk=pk).update(price=startprice)
+                Product.objects.filter(pk=pk).update(buyer=request.user.get_username())
+            elif (request.user.get_username()):
+                form.error="Your price should be greater!"
+            else:
+                form.error="Your should singin!"
+        print(form.error)
+
+    else:
+        form = BidForm()
     content = {
+        'form': form,
         'TimeDay' : day,
         'TimeTime' : time,
         'Category' : Category.objects.all(),

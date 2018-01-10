@@ -1,1 +1,1 @@
-sass -t compressed acsite\static\sass\all.sass acsite\static\css\all.css 
+sass -t compressed acsite\static\sass\all.sass acsite\static\css\all.css, sass -t compressed acsite\static\sass\add.sass acsite\static\css\add.css

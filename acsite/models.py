@@ -20,6 +20,7 @@ class Product(models.Model):
     photo = models.FileField(null=True)
     startprice = models.CharField(max_length=50)
     price = models.CharField(max_length=50)
+    buyer = models.CharField(max_length=100, blank=True, null=True)
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
     datestart = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     datefinish = models.DateTimeField(default=datetime.now(), null=False, blank=False)

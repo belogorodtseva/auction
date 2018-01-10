@@ -85,11 +85,6 @@ a
       padding-top: 1vh
       input[type=text]
         width: 15vw
-        -webkit-box-sizing: border-box
-        -moz-box-sizing: border-box
-        -ms-box-sizing: border-box
-        -o-box-sizing: border-box
-        box-sizing: border-box
         border: 2px solid $grey-color
         +border-radius(4px)
         font-size: 2vh
@@ -98,18 +93,13 @@ a
         background-position: left
         background-size: contain
         background-repeat: no-repeat
-        padding: .5vh 1vh .5vh 4vh
+        padding: .5vh .5vh .5vh .5vh
         -webkit-transition: width .4s ease-in-out
         transition: width .4s ease-in-out
         &:focus
-          width: 50vw
+          width: 30vw
           outline: 2px solid $primary-color
       button
-        -webkit-box-sizing: border-box
-        -moz-box-sizing: border-box
-        -ms-box-sizing: border-box
-        -o-box-sizing: border-box
-        box-sizing: border-box
         cursor: pointer
         padding: .5vh
         +border-radius(4px)
@@ -317,11 +307,13 @@ footer
       .search-content
         padding: 1vh
         input[type=text]
-          width: 45vw
+          width: 35vw
+          font-size: 1.5vh
           &:focus
-            width: 45vw
+            width: 35vw
         button
-          width: 20vw
+          font-size: 1.5vh
+          width: 15vw
         .sbutton::after
           content: #128269
     #conteiner
