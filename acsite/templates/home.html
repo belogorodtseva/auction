@@ -3,24 +3,25 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}" type = "text/css"/>
-  <title>Online Auction</title>
+  <title>Home - Online Auction</title>
   <meta name="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!"/>
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Online Auction" />
+  <meta property="og:title" content="Home - Online Auction" />
   <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 
-  <meta itemprop="name" content="Online Auction" />
+  <meta itemprop="name" content="Home - Online Auction" />
   <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}
+
 <!--Slider-->
 <div id="slider">
-  <a href="#" class="control_next">></a>
-  <a href="#" class="control_prev"><</a>
+  <a href="#" class="control_next">&#187;</a>
+  <a href="#" class="control_prev">&#171;</a>
   <ul>
     <li style="background-image:url({% static 'img/auction1.jpg' %})"></li>
     <li style="background-image:url({% static 'img/auction2.jpg' %})"></li>
@@ -30,12 +31,13 @@
 </div>
 
 
-<!--Top products-->
+<!--Top category-->
 <div class="products-content">
 
-  <!--Category top-->
+<!--category top-->
   <div class="product-row">
-    <!--Category header-->
+
+<!--category header-->
     <header>
       {% for T in Top1 %}
       <img src="{{ T.icon.url }}">
@@ -45,19 +47,24 @@
       {% endfor %}
     </header>
 
-    <!--Category products-->
+<!--category products-->
     <div class="products-section">
 
       {% for P in Product1 %}
-      <!--Uno product section-->
-
+<!--Uno product section-->
       <div class="product-uno">
+
         <a href="{% url 'product' pk=P.pk %}">
-        <div class="product-image" style="background-image:url({{ P.photo.url }})">
-          <div class="product-price">
-            <p>{{ P.price }}</p>
+          {% if P.photo %}
+          <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          {% else %}
+          <div class="product-image" style="background-image:url({% static 'img/nintendo.jpg' %})">
+          {% endif %}
+            <div class="product-price">
+              <p>{{ P.price }}$</p>
+            </div>
           </div>
-        </div></a>
+        </a>
         <div class="product-detail">
           <div class="product-name">
             <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
@@ -66,12 +73,9 @@
             <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
+
       </div>
-
       {% endfor %}
-
-
-
     </div>
 
     <div class="seemore-products">
@@ -83,9 +87,10 @@
   </div>
 
 
-  <!--Category top-->
+<!--category top-->
   <div class="product-row">
-    <!--Category header-->
+
+<!--category header-->
     <header>
       {% for T in Top2 %}
       <img src="{{ T.icon.url }}">
@@ -95,19 +100,24 @@
       {% endfor %}
     </header>
 
-    <!--Category products-->
+<!--category products-->
     <div class="products-section">
 
       {% for P in Product2 %}
-      <!--Uno product section-->
-
+<!--Uno product section-->
       <div class="product-uno">
+
         <a href="{% url 'product' pk=P.pk %}">
-        <div class="product-image" style="background-image:url({{ P.photo.url }})">
-          <div class="product-price">
-            <p>{{ P.price }}</p>
+          {% if P.photo %}
+          <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          {% else %}
+          <div class="product-image" style="background-image:url({% static 'img/nintendo.jpg' %})">
+          {% endif %}
+            <div class="product-price">
+              <p>{{ P.price }}$</p>
+            </div>
           </div>
-        </div></a>
+        </a>
         <div class="product-detail">
           <div class="product-name">
             <a href="{% url 'product' pk=P.pk %}">{{P.name}}</a>
@@ -116,11 +126,9 @@
             <p>Time finish | {{ P.datefinish }}</p>
           </div>
         </div>
+
       </div>
-
       {% endfor %}
-
-
     </div>
 
     <div class="seemore-products">

@@ -22,19 +22,21 @@
     {% block headin %}
     {% endblock %}
 
-
-  <style>
-
-  </style>
-
 </head>
 
 <body>
+<!-- blocking landscape orientation-->
   <div class="block">
     rotate
   </div>
+
+
   <div class="wrap">
+
+<!-- main header-->
   <header id="mainheader">
+
+<!-- login menu -->
     <div class="topmenu">
       <div class="topmenu-content">
         <a id="logo" href="/">
@@ -57,47 +59,57 @@
       </div>
     </div>
 
+<!-- search menu -->
     <div class="searchblock">
       <div class="search-content">
           <input id="search" type="text" name="search">
           <button class="sbutton">SEARCH</button>
       </div>
     </div>
+
+<!-- menu -->
     <div id="conteiner">
-    <nav id="menu1">
-      <a class="open" href="#nav" title="Show navigation">
-        <img src="{% static 'img/menu.png' %}">
-      </a>
-      <a class="close" href="#" title="Hide navigation">
-        <img src="{% static 'img/close.png' %}">
-      </a>
-      <ul class="menulist">
-          <li><a href="/">Home</a></li>
-          <li id="submenu">
-            <a href="/alldepartments/">All departments</a>
-            <ul>
-              {% for C in Category %}
-                <li><a href="{% url 'category' pk=C.pk filter='date' %}">{{C.name}}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-          <li><a href="/news/">News</a></li>
-          {% if not user.is_authenticated %}
-          <li><a href="/signup/">Sing up</a></li>
-          {% endif %}
-          {% if user.is_authenticated %}
-            <li>
-              <a href="/add/">Add product</a>
+      <nav id="menu1">
+
+<!-- mobile buttons -->
+        <a class="open" href="#nav" title="Show navigation">
+          <img src="{% static 'img/menu.png' %}">
+        </a>
+        <a class="close" href="#" title="Hide navigation">
+          <img src="{% static 'img/close.png' %}">
+        </a>
+
+        <ul class="menulist">
+            <li><a href="/">Home</a></li>
+            <li id="submenu">
+              <a href="/alldepartments/">All departments</a>
+              <ul>
+                {% for C in Category %}
+                  <li><a href="{% url 'category' pk=C.pk filter='date' %}">{{C.name}}</a></li>
+                {% endfor %}
+              </ul>
             </li>
-          {% endif %}
-          <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+            <li><a href="/news/">News</a></li>
+            {% if not user.is_authenticated %}
+            <li><a href="/signup/">Sing up</a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+              <li>
+                <a href="/add/">Add product</a>
+              </li>
+            {% endif %}
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
   {% block content %}
   {% endblock %}
+
   </div>
+
+  <!-- footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-about">
@@ -141,6 +153,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="/static/js/all.js"></script>
+
   {% block scriptin %}
   {% endblock %}
 

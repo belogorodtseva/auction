@@ -9,24 +9,27 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{% for P in This %}{{P.title}}{% endfor %}" />
   <meta property="og:description" content="{% for P in This %}{{P.description}}{% endfor %}" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% for P in This %}{{P.icon.url}}{% endfor %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% for P in This %}{{P.icon.url}}{% endfor %}" />
 
   <meta itemprop="name" content="{% for P in This %}{{P.title}}{% endfor %}" />
   <meta itemprop="description" content="{% for P in This %}{{P.description}}{% endfor %}" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% for P in This %}{{P.icon.url}}{% endfor %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% for P in This %}{{P.icon.url}}{% endfor %}" />
+  
 {% endblock %}
 
 {% block content %}
 
-<!--Top products-->
+
 <div class="products-content">
 
-  <!--Category top-->
   <div class="product-row">
+
+<!-- breadcrumbs -->
     <div class="breadcrumbs">
       <a href="/">Home</a>-<a>{% for T in This %}{{T.name}}{% endfor %}</a>
     </div>
-    <!--Category header-->
+
+<!--header-->
     <header>
       {% for T in This %}
       <img src="{{ T.icon.url }}">
@@ -37,6 +40,8 @@
   </header>
 
     {% if Products %}
+
+<!--category filters-->
       {% for T in This %}
       <div class="category-filters">
         <a href="{% url 'category' pk=T.pk filter='date' %}"> date &#9660;</a>
@@ -46,17 +51,24 @@
         <a href="{% url 'category' pk=T.pk filter='lastday' %}"> lastday</a>
       </div>
       {% endfor %}
-    <!--Category products-->
+
+<!--Category products-->
     <div class="products-section">
+
       {% for P in Products %}
-      <!--Uno product section-->
+<!--Uno product-->
       <div class="product-uno">
         <a href="{% url 'product' pk=P.pk %}">
-        <div class="product-image" style="background-image:url({{ P.photo.url }});">
-          <div class="product-price">
-            <p>{{ P.price }}</p>
+          {% if P.photo %}
+          <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          {% else %}
+          <div class="product-image" style="background-image:url({% static 'img/nintendo.jpg' %})">
+          {% endif %}
+            <div class="product-price">
+              <p>{{ P.price }}$</p>
+            </div>
           </div>
-        </div></a>
+        </a>
         <div class="product-detail">
           <div class="product-name">
             <a href="{% url 'product' pk=P.pk %}"> {{ P.name }}</a>
@@ -68,7 +80,7 @@
       </div>
       {% endfor %}
 
-
+<!--pagination-->
       <div class="pagination">
          <span class="step-links">
              {% if Products.has_previous %}
@@ -88,13 +100,7 @@
       {% else %}
         <h2>Nothing</h2>
       {% endif %}
-
-
-
     </div>
-
-
-
   </div>
 </div>
 

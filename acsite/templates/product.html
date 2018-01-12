@@ -9,23 +9,25 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{% for P in Product %}{{P.name}}{% endfor %}" />
   <meta property="og:description" content="{% for P in Product %}{{P.description}}{% endfor %}" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% for P in Product %}{{P.photo.url}}{% endfor %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 
   <meta itemprop="name" content="{% for P in Product %}{{P.name}}{% endfor %}" />
   <meta itemprop="description" content="{% for P in Product %}{{P.description}}{% endfor %}" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% for P in Product %}{{P.photo.url}}{% endfor %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}
 <div class="product-row">
 
   {% for P in Product %}
+
+<!--breadcrumbs -->
   <div class="breadcrumbs">
     <a href="/">Home</a>-<a href="{% url 'category' pk=P.category.pk filter='date' %}">{{P.category}}</a>-<a>{{P.name}}</a>
   </div>
-  <!--Category top-->
+
+  <!--product header-->
   <div class="product-header">
-    <!--Category header-->
     <header>
       <div class="line"></div>
       <h2>{{ P.name }}</h2>
@@ -33,17 +35,24 @@
   </div>
 
   <div class="product-content">
+
+<!--product images-->
     <div class="product-photo">
       <div class=bigimg></div>
       <div class="small-block">
-      {% for I in Image %}
-        <div class="smallimg"  style="background-image:url({{ I.photo.url }});"></div>
-      {% endfor %}
-
+      {% if Image %}
+        {% for I in Image %}
+          <div class="smallimg"  style="background-image:url({{ I.photo.url }});"></div>
+        {% endfor %}
+      {% else %}
+        <div class="smallimg" style="background-image:url({% static 'img/nintendo.jpg' %})"></div>
+        <div class="smallimg" style="background-image:url({% static 'img/nintendo.jpg' %})"></div>
+        <div class="smallimg" style="background-image:url({% static 'img/nintendo.jpg' %})"></div>
+      {% endif %}
       </div>
     </div>
 
-
+<!--product info-->
     <div class="product-info">
       <div class="product-desc">
         <p>{{ P.description }}</p>
@@ -51,17 +60,18 @@
       <div class="current-price">
         <p>{{ P.price }}$</p>
       </div>
+
+<!--product bid-->
       <div class="product-bid">
         <form method="post">
           {% csrf_token %}
-
           <p id="error">{{ form.error}}</p>
-
           {{ form.startprice }}
           <button type="submit">BID NOW</button>
         </form>
       </div>
 
+<!--share button-->
       <a name="fb_share" type="button">Share</a>
       <script src="https://www.facebook.com/connect.php/js/FB.Share" type="text/javascript"></script>
 
@@ -69,6 +79,7 @@
 
   </div>
 
+<!--time-->
   <div class="product-time">
     <div class="product-left">
       <p><b>Time Left:</b></p>

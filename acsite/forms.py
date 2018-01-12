@@ -21,8 +21,8 @@ class AddForm(forms.Form):
     )
     category = forms.CharField(required=True,widget=forms.Select(choices=final_choices))
     startprice = forms.CharField(required=True,widget=forms.NumberInput(attrs={'minlength': 1, 'maxlength': 15,'type': 'number',}))
-    mainimage = forms.ImageField(required=True, widget=forms.FileInput)
-    timefinish = forms.DateTimeField(required=True,widget=forms.TextInput(attrs={'type': 'time', 'value': '00:00'}))
+    mainimage = forms.ImageField(required=False)
+    timefinish = forms.TimeField(required=True,widget=forms.TextInput(attrs={'type': 'time', 'value': '00:00'}))
     datefinish = forms.DateTimeField(required=True,widget=forms.TextInput(attrs={'type': 'date'}))
     image1 = forms.ImageField(required=False)
     image2 = forms.ImageField(required=False)
@@ -40,7 +40,12 @@ class AddForm(forms.Form):
         mainimage = cleaned_data.get('mainimage')
         timefinish = cleaned_data.get('timefinish')
         datefinish = cleaned_data.get('datefinish')
-        if not name and not description and not category and not startprice and not mainimage and not datefinish and not timefinish:
+        image1 = cleaned_data.get('image1')
+        image2 = cleaned_data.get('image2')
+        image3 = cleaned_data.get('image3')
+        image4 = cleaned_data.get('image4')
+        image5 = cleaned_data.get('image5')
+        if not name and not description and not category and not startprice and not datefinish and not timefinish:
             raise forms.ValidationError('You have to write something!')
 
 class BidForm(forms.Form):

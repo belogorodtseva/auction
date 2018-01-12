@@ -47,8 +47,6 @@ def index(request):
         'Top2' : top2,
         'Product1' : product1,
         'Product2' : product2,
-
-
     }
     return render(request, 'home.html', content)
 
@@ -177,13 +175,22 @@ def product(request, pk):
     }
     return render(request, 'product.html', content)
 
+
+
 @login_required(login_url='/login/')
 def add(request):
     if request.method == 'POST':
         form = AddForm(request.POST, request.FILES)
         if form.is_valid():
-            print ('ok')
-            pass  # does nothing, just trigger the validation
+            name = form.cleaned_data['name']
+            description = form.cleaned_data['description']
+            categoryid = form.cleaned_data['category']
+            startprice = form.cleaned_data['startprice']
+            timefinish = form.cleaned_data['timefinish']
+            datefinish = form.cleaned_data['datefinish']
+            category = Category.objects.get(pk=categoryid)
+            Product.objects.create(name=name, description=description,
+                category=category, startprice=startprice, price=startprice)
     else:
         form = AddForm()
     content = {

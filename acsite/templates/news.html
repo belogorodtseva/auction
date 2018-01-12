@@ -9,27 +9,32 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="News - Online Auction" />
   <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 
   <meta itemprop="name" content="News - Online Auction" />
   <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}
+
+<!--breadcrumbs-->
 <div class="breadcontent">
   <div class="breadcrumbs">
     <a href="/">Home</a>-<a>News</a>
   </div>
 </div>
 
+<!--header-->
 <header class="news-header">
   <h1>News</h1>
   <div class="line"></div>
 </header>
 
-  <!--Top products-->
+<!--news-->
   <div class="news-content">
+
+<!--news 1-->
     <div id="1" class="news-article">
       <img src="{% static 'img/news1.jpg' %}">
       <header>
@@ -45,6 +50,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 2-->
     <div id="2" class="news-article">
       <img src="{% static 'img/news1.jpg' %}">
       <header>
@@ -60,6 +67,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 3-->
     <div id="3" class="news-article">
       <img src="{% static 'img/news1.jpg' %}">
       <header>
@@ -75,6 +84,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 4-->
     <div id="4" class="news-article">
       <img src="{% static 'img/news1.jpg' %}">
       <header>
@@ -90,6 +101,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 5-->
     <div id="5" class="news-article not-visible">
       <img src="{% static 'img/news2.jpg' %}">
       <header>
@@ -105,6 +118,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 6-->
     <div id="6" class="news-article not-visible">
       <img src="{% static 'img/news2.jpg' %}">
       <header>
@@ -120,6 +135,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 7-->
     <div id="7" class="news-article not-visible">
       <img src="{% static 'img/news2.jpg' %}">
       <header>
@@ -135,6 +152,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 8-->
     <div id="8" class="news-article not-visible">
       <img src="{% static 'img/news2.jpg' %}">
       <header>
@@ -150,6 +169,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 9-->
     <div id="9" class="news-article not-visible">
       <img src="{% static 'img/news3.jpg' %}">
       <header>
@@ -165,6 +186,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 10-->
     <div id="10" class="news-article not-visible">
       <img src="{% static 'img/news3.jpg' %}">
       <header>
@@ -180,6 +203,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 11-->
     <div id="11" class="news-article not-visible">
       <img src="{% static 'img/news3.jpg' %}">
       <header>
@@ -195,6 +220,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 12-->
     <div id="12" class="news-article not-visible">
       <img src="{% static 'img/news3.jpg' %}">
       <header>
@@ -210,6 +237,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 13-->
     <div id="13" class="news-article not-visible">
       <img src="{% static 'img/news1.jpg' %}">
       <header>
@@ -225,6 +254,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 14-->
     <div id="14" class="news-article not-visible">
       <img src="{% static 'img/news2.jpg' %}">
       <header>
@@ -240,6 +271,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 15-->
     <div id="15" class="news-article not-visible">
       <img src="{% static 'img/news3.jpg' %}">
       <header>
@@ -255,6 +288,8 @@
       </div>
       <div class="line"></div>
     </div>
+
+<!--news 16-->
     <div id="16" class="news-article not-visible">
       <img src="{% static 'img/news3.jpg' %}">
       <header>
@@ -271,6 +306,7 @@
       <div class="line"></div>
     </div>
 
+<!--news buttons-->
     <div class="buttons">
       <input type="button" id="first" onclick="firstPage()" value="first" />
       <input type="button" id="previous" onclick="previousPage()" value="&#171;" />

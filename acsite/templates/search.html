@@ -15,32 +15,37 @@
 
 {% block content %}
 
-<!--Top products-->
 <div class="products-content">
 
-  <!--Category top-->
   <div class="product-row">
+
+<!--breadcrumbs-->
     <div class="breadcrumbs">
       <a href="/">Home</a>-<a>Search results for {{Search}}</a>
     </div>
-    <!--Category header-->
+
+<!--header-->
     <header>
       <div class="line"></div>
       <h2>Search results for {{Search}}</h2>
     </header>
 
     {% if Products %}
-    <!--Category products-->
     <div class="products-section">
       {% for P in Products %}
-      <!--Uno product section-->
+<!--Uno product section-->
       <div class="product-uno">
         <a href="{% url 'product' pk=P.pk %}">
-        <div class="product-image" style="background-image:url({{ P.photo.url }});">
-          <div class="product-price">
-            <p>{{ P.price }}</p>
+          {% if P.photo %}
+          <div class="product-image" style="background-image:url({{ P.photo.url }})">
+          {% else %}
+          <div class="product-image" style="background-image:url({% static 'img/nintendo.jpg' %})">
+          {% endif %}
+            <div class="product-price">
+              <p>{{ P.price }}$</p>
+            </div>
           </div>
-        </div></a>
+        </a>
         <div class="product-detail">
           <div class="product-name">
             <a href="{% url 'product' pk=P.pk %}"> {{ P.name }}</a>
@@ -52,7 +57,7 @@
       </div>
       {% endfor %}
 
-
+<!--pagination-->
       <div class="pagination">
          <span class="step-links">
              {% if Products.has_previous %}

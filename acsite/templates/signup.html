@@ -3,27 +3,31 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/log.css' %}" type = "text/css"/>
-  <title>Sing up</title>
+  <title>Sing up - Online Auction</title>
   <meta name="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!"/>
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sing up" />
+  <meta property="og:title" content="Sing up - Online Auction" />
   <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 
-  <meta itemprop="name" content="Sing up" />
+  <meta itemprop="name" content="Sing up - Online Auction" />
   <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}
 
 <div class="content">
   <div class="log-content">
+
+<!--header-->
     <header>
       <div class="line"></div>
       <h2>SING UP</h2>
     </header>
+
+<!--singup form-->
     <form method="post">
       {% csrf_token %}
       {% for field in form %}
@@ -37,6 +41,7 @@
       {% endfor %}
     <button type="submit">Sing UP</button>
     </form>
+
   </div>
 </div>
 

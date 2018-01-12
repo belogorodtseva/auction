@@ -3,32 +3,35 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/contact.css' %}" type = "text/css"/>
-  <title>Company Info</title>
+  <title>Company Info - Online Auction</title>
   <meta name="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!"/>
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Company Info" />
+  <meta property="og:title" content="Company Info - Online Auction" />
   <meta property="og:description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 
-  <meta itemprop="name" content="Company Info" />
+  <meta itemprop="name" content="Company Info - Online Auction" />
   <meta itemprop="description" content="Online Auctions starting at only $1!  Free to bid on automobiles, jewelry, watches, iphones, coins, fine art, electronics, bikes, collectibles, and more!" />
-  <meta property="og:image" content="http://127.0.0.1:8000{% static 'img/logo.png' %}" />
+  <meta property="og:image" content="http://annabelogorodtseva.pythonanywhere.com{% static 'img/logo.png' %}" />
 {% endblock %}
 
 {% block content %}
+
+<!--breadcrumbs-->
 <div class="breadcontent">
   <div class="breadcrumbs">
     <a href="/">Home</a>-<a>Contact</a>
   </div>
 </div>
 
+<!--header-->
 <header class="contact-header">
   <h1>Company Info</h1>
   <div class="line"></div>
 </header>
 
-  <!--contact content-->
+<!--contact content-->
   <div class="contact-content">
 
     <div class="contact-section">
@@ -38,26 +41,19 @@
         All auctions take place online and are available to bid 24 hours a day.</p>
     </div>
 
-
+<!--contact buttons-->
     <div class="contact-button">
       <a id="register" href="/register/">Register</a>
       <a id="login" href="/login/">Sing in</a>
     </div>
 
-    <video width="320" height="240" controls>
-      <source src="{% static 'video/movie.mp4' %}" type="video/mp4">
-      <source src="{% static 'video/movie.ogg' %}" type="video/ogg">
-      Your browser does not support the video tag.
-    </video>
-
-
+<!--contact map-->
     <div class="contact-map">
       <h2>FIND US!</h2>
       <div id="map"></div>
     </div>
 
   </div>
-
 
 {% endblock %}
 
