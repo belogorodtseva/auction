@@ -1,2 +1,141 @@
-.content{width:100%}.log-content{max-width:1100px;margin:0 auto}.log-content header{margin-top:3vh;position:relative;height:5vh}.log-content header .line{border-bottom:2px solid #f1c40f;position:absolute;top:2vh;left:0;right:0}.log-content header h2{position:absolute;font-size:3vh;color:#212121;z-index:3;background-color:#F5F5F5;left:0;margin:0;top:0}.log-content form{width:50%;margin:0 auto;font-size:2vh;background-color:#212121;display:table;margin-bottom:5vh;margin-top:2vh}.log-content form .errorlist{list-style:none;margin:0;margin-top:1vh;margin-left:1vh;color:#ca0505}.log-content form #error{display:block;width:80%;margin:0 auto;color:#ca0505;font-size:2.2vh}.log-content form label{color:#F5F5F5;display:block;width:80%;margin:0 auto;margin-top:1vh}.log-content form input[type="file"]{color:#bdc3c7}.log-content form input,.log-content form textarea{-webkit-border-radius:1.5vh;-moz-border-radius:1.5vh;-ms-border-radius:1.5vh;border-radius:1.5vh;font-size:2vh;padding:.3vh;background-color:#F5F5F5;display:block;width:80%;margin:0 auto;border:2px solid #bdc3c7;margin-top:1vh;margin-bottom:2vh;overflow:auto;resize:none;overflow:hidden}.log-content form input:hover,.log-content form textarea:hover{border:2px solid #f1c40f}.log-content form input:focus,.log-content form textarea:focus{outline:none;border:2px solid #f1c40f}.log-content form textarea{resize:none;overflow:hidden}.log-content form select{-webkit-border-radius:1.5vh;-moz-border-radius:1.5vh;-ms-border-radius:1.5vh;border-radius:1.5vh;padding:.3vh;font-size:2vh;background-color:#F5F5F5;display:block;border:2px solid #bdc3c7;margin:0 auto;margin-top:1vh;margin-bottom:2vh;width:80%}.log-content form select:hover{border:2px solid #f1c40f}.log-content form select:focus{outline:none;border:2px solid #f1c40f}.log-content form span{display:none}.log-content form button{cursor:pointer;padding:.5vh;-webkit-border-radius:1.5vh;-moz-border-radius:1.5vh;-ms-border-radius:1.5vh;border-radius:1.5vh;width:60%;margin:0 auto;font-size:2.5vh;margin-top:1vh;margin-bottom:2vh;display:block;background-color:#f1c40f;color:#212121;border:2px solid #212121}.log-content form button:hover{border:2px solid #bdc3c7}.log-content form button:focus{outline:none;border:2px solid #f1c40f}
-/*# sourceMappingURL=log.css.map */
+.content {
+  width: 100%;
+}
+
+.log-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.log-content header {
+  margin-top: 3vh;
+  position: relative;
+  height: 5vh;
+}
+.log-content header .line {
+  border-bottom: 2px solid #f1c40f;
+  position: absolute;
+  top: 2vh;
+  left: 0;
+  right: 0;
+}
+.log-content header h2 {
+  position: absolute;
+  font-size: 3vh;
+  color: #212121;
+  z-index: 3;
+  background-color: #F5F5F5;
+  left: 0;
+  margin: 0;
+  top: 0;
+}
+.log-content form {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 2vh;
+  background-color: #212121;
+  display: table;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+.log-content form .errorlist {
+  list-style: none;
+  margin: 0;
+  margin-top: 1vh;
+  margin-left: 1vh;
+  color: #ca0505;
+}
+.log-content form #error {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  color: #ca0505;
+  font-size: 2.2vh;
+}
+.log-content form label {
+  color: #F5F5F5;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1vh;
+}
+.log-content form input[type="file"] {
+  color: #bdc3c7;
+}
+.log-content form input, .log-content form textarea {
+  -webkit-border-radius: 1.5vh;
+  -moz-border-radius: 1.5vh;
+  -ms-border-radius: 1.5vh;
+  border-radius: 1.5vh;
+  font-size: 2vh;
+  padding: 0.3vh;
+  background-color: #F5F5F5;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #bdc3c7;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  overflow: auto;
+  resize: none;
+  overflow: hidden;
+}
+.log-content form input:hover, .log-content form textarea:hover {
+  border: 2px solid #f1c40f;
+}
+.log-content form input:focus, .log-content form textarea:focus {
+  outline: none;
+  border: 2px solid #f1c40f;
+}
+.log-content form textarea {
+  resize: none;
+  overflow: hidden;
+}
+.log-content form select {
+  -webkit-border-radius: 1.5vh;
+  -moz-border-radius: 1.5vh;
+  -ms-border-radius: 1.5vh;
+  border-radius: 1.5vh;
+  padding: 0.3vh;
+  font-size: 2vh;
+  background-color: #F5F5F5;
+  display: block;
+  border: 2px solid #bdc3c7;
+  margin: 0 auto;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  width: 80%;
+}
+.log-content form select:hover {
+  border: 2px solid #f1c40f;
+}
+.log-content form select:focus {
+  outline: none;
+  border: 2px solid #f1c40f;
+}
+.log-content form span {
+  display: none;
+}
+.log-content form button {
+  cursor: pointer;
+  padding: 0.5vh;
+  -webkit-border-radius: 1.5vh;
+  -moz-border-radius: 1.5vh;
+  -ms-border-radius: 1.5vh;
+  border-radius: 1.5vh;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 2.5vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  display: block;
+  background-color: #f1c40f;
+  color: #212121;
+  border: 2px solid #212121;
+}
+.log-content form button:hover {
+  border: 2px solid #bdc3c7;
+}
+.log-content form button:focus {
+  outline: none;
+  border: 2px solid #f1c40f;
+}

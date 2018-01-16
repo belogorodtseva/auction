@@ -89,15 +89,12 @@ def category(request, pk, filter):
             a = str(x[0]).split("-")
             b = str(y[0]).split("-")
             if a[2]==b[2]:
-                print(a[2])
-                print(b[2])
                 productlist.append(p)
-        print(productlist)
     elif filter == 'price':
         productlist = Product.objects.filter(category=pk).order_by("-price")
     elif filter == 'priceup':
         productlist = Product.objects.filter(category=pk).order_by("price")
-    paginator = Paginator(productlist, 9)
+    paginator = Paginator(productlist, 12)
     page = request.GET.get('page')
     try:
         product = paginator.page(page)
@@ -115,7 +112,7 @@ def category(request, pk, filter):
 
 def search(request, search):
     productlist = Product.objects.filter(name__contains=search).order_by("-datefinish")
-    paginator = Paginator(productlist, 1)
+    paginator = Paginator(productlist, 12)
     page = request.GET.get('page')
     try:
         product = paginator.page(page)
@@ -145,6 +142,10 @@ def product(request, pk):
             c = x[1].split(".")
             time = c[0]
             day = x[0]
+            a = day.split(" ")
+            if (float(a[0]) < 0):
+                time = "AUCTION"
+                day = "IS OVER"
         else:
             c=x[0].split(".")
             time=c[0]
